@@ -1,0 +1,28 @@
+.infoBox{
+    display: inline-block;
+    border: 1px solid purple;
+    background-color: rgb(226, 141, 141);
+    margin-bottom: 20px;
+    justify-content: center;
+    height: 100%;
+}
+
+svg {
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index: 2; /*расположить svg поверх основной картинки*/
+}
+
+.part{
+    background-color: blue;
+    opacity: 100%;
+}
+
+.part:hover{
+    transition: opacity .2s ease;
+    opacity: 0.2;
+    cursor: pointer;
+}
