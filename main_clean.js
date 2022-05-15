@@ -33,20 +33,31 @@ cont.addEventListener('click', async function(event){
     svg.setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
 
     pDiv.appendChild(img);
-    pDiv.appendChild(svg);
     frag.appendChild(pDiv);
 
     box.appendChild(frag);
 
-    //оформление svg на добавление в html код
+    //оформление/создание svg на добавление в html код
     let frag1 = document.createDocumentFragment();
+
     let group = commits[wButton.id-1].groups; 
+    console.log(group)
+
     let g = document.createElement("g");
-    let title = commits[wButton.id-1].groups;
+    let title = document.createElement("title")
+    title.textContent = commits[wButton.id-1].groups[0].title;
+    let path = document.createElement("path")
+    path.setAttribute("class", "part")
+    path.setAttribute("d", commits[wButton.id-1].groups[0].path)
+    let desc = document.createElement("desc");
+    desc.textContent = commits[wButton.id-1].groups[0].desc;
+
+    g.appendChild(title);
+    g.appendChild(path);
+    g.appendChild(desc);
+    svg.appendChild(g);
+
+    frag1.appendChild(svg);
+    box.appendChild(frag1);
 
 })
-
-
-box2.insertAdjacentHTML("afterbegin", `<div>
-<strong>Всем привет!</strong> Вы прочитали важное сообщение.
-</div>`);
